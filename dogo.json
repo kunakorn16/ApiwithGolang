@@ -1,0 +1,8 @@
+{
+    "WorkingDir": ".",
+    "SourceDir": ["."],
+    "SourceExt": [".c", ".cpp", ".go", ".h"],
+    "BuildCmd": "go build projectend.go",
+    "RunCmd": "./projectend",
+    "Decreasing": 1
+}

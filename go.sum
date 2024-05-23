@@ -1,0 +1,10 @@
+filippo.io/edwards25519 v1.1.0 h1:FNf4tywRC1HmFuKW5xopWpigGjJKiJSV0Cqo0cJWDaA=
+filippo.io/edwards25519 v1.1.0/go.mod h1:BxyFTGdWcka3PhytdK4V28tE5sGfRvvvRV7EaN4VDT4=
+github.com/go-sql-driver/mysql v1.8.1 h1:LedoTUt/eveggdHS9qUFC1EFSa8bU2+1pZjSRpvNJ1Y=
+github.com/go-sql-driver/mysql v1.8.1/go.mod h1:wEBSXgmK//2ZFJyE+qWnIsVGmvmEKlqwuVSjsCm7DZg=
+github.com/liudng/dogo v0.0.0-20161102105440-7887b849de84 h1:TfoOhPA/wVBQquvt6sLB5azjz7ru+SqSik0LBFJNh8Q=
+github.com/liudng/dogo v0.0.0-20161102105440-7887b849de84/go.mod h1:7K256XlNXuTYd5wy0pvudr7XTD3e8sxK69hDvKK70mE=
+github.com/zhgo/config v0.0.0-20150924145423-9caf41330bd9 h1:Z1frjeEo/oAdG/GmRuBSdWaVkHYhwursoUq6r4u7h7s=
+github.com/zhgo/config v0.0.0-20150924145423-9caf41330bd9/go.mod h1:I/6dXd84K0o4KQGy6034cb9nognYO2PxCRh/AvsGURg=
+github.com/zhgo/console v0.0.0-20150817103316-22d59bcbd28e h1:ilIThfic42Xozj3DsG676PtCKY/VEPLlt12UNTr48Ks=
+github.com/zhgo/console v0.0.0-20150817103316-22d59bcbd28e/go.mod h1:Scfm/DPAJX13F/A5SBA5NJZdUZ8YAYwXlUexLc/lvPA=
