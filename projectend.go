@@ -132,6 +132,29 @@ func getSisdata(id int) (*Sisdata, error) {
 
 }
 
+func updateSisdata(sisdata Sisdata) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+	_, err := Db.ExecContext(ctx, `UPDATE sisdata SET
+		name = ?,
+		lname = ?,
+		nostudent = ?,
+		`+"`group`"+` = ?,
+		branch = ?
+	WHERE id = ?`,
+		sisdata.Name,
+		sisdata.LName,
+		sisdata.Nostudent,
+		sisdata.Group,
+		sisdata.Branch,
+		sisdata.ID)
+	if err != nil {
+		log.Println(err.Error())
+		return err
+	}
+	return nil
+}
+
 func removeSisdata(ID int) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
@@ -176,6 +199,7 @@ func handleSisdatas(w http.ResponseWriter, r *http.Request) {
 		}
 		w.WriteHeader(http.StatusCreated)
 		w.Write([]byte(fmt.Sprintf(`{"id":%d}`, SisdataID)))
+
 	case http.MethodOptions:
 		return
 	default:
@@ -216,6 +240,23 @@ func handleSisdata(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Fatal(err)
 		}
+
+	case http.MethodPut:
+		var sisdata Sisdata
+		err := json.NewDecoder(r.Body).Decode(&sisdata)
+		if err != nil {
+			log.Print(err)
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		sisdata.ID = SisdataID
+		err = updateSisdata(sisdata)
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+		w.WriteHeader(http.StatusOK)
+
 	case http.MethodDelete:
 		err := removeSisdata(SisdataID)
 		if err != nil {
